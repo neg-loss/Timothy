@@ -6,28 +6,23 @@ This project implements a multi-agent Retrieval-Augmented Generation
 (RAG) system that allows users to query and analyze legal contracts
 through a console-based interactive interface.
 
-The system enables users to ask natural language questions about
-contracts such as NDAs, vendor agreements, and service agreements. It
-retrieves relevant clauses from the documents and generates grounded
-answers with supporting references and risk indicators.
+The system enables users to ask natural language questions about contracts
+and service agreements etc. It retrieves relevant clauses from the documents
+and generates grounded answers with supporting references and risk indicators.
 
-The architecture is designed as a multi-agent system where each agent
-performs a specialized task such as query validation, context retrieval,
-risk detection, and answer generation.
+The architecture is designed as a multi-agent system where each agent performs
+a specialized task such as query validation, context retrieval, risk detection, and answer generation.
 
 The system runs using a client-server architecture:
 
-Flask Server - Hosts the RAG system and agents - Loads models and vector
-database - Manages conversation sessions
+Flask Server - Hosts the RAG system and agents - Loads models and vector database - Manages conversation sessions
 
-CLI Client - Interactive console interface - Supports multiple
-independent sessions
+CLI Client - Interactive console interface - Supports multiple independent sessions
 
 # Problem Statement
 
-Legal contracts contain critical clauses related to confidentiality,
-liability, termination, compliance, and governing law. Manually
-analyzing these documents is time-consuming and error-prone.
+Legal contracts contain critical clauses related to confidentiality, liability, termination, compliance, 
+and governing law. Manually analyzing these documents is time-consuming and error-prone.
 
 This system provides:
 
@@ -39,7 +34,10 @@ This system provides:
 
 # System Architecture
 
-User Query | Guardrail Agent | Memory Agent | Query Classification Agent | Retrieval Agent | Rerank Agent | Risk Analysis Agent | Answer Generation Agent | Final Response + Sources + Risk Indicators
+User Query | Guardrail Agent | Memory Agent | Query Classification Agent | Retrieval Agent | Rerank 
+Agent | Risk Analysis Agent | Answer Generation Agent | Final Response + Sources + Risk Indicators
+
+![Architecture](new_architecture.png)
 
 
 # Setup Instructions
@@ -50,30 +48,30 @@ pip install -r requirements.txt
 
 2.  Install Ollama and pull model
 
-ollama pull llama3
+```
+curl -fsSL https://ollama.com/install.sh | sh
+```
 
 3.  Ingest documents(One time activity)
 
-python ingestion/ingest.py
+`python ingest.py`
 
 4.  Start server
 
-python app.py
+`python app.py`
 
 5.  Start client
 
-python client/cli.py
+`python client/cli.py`
 
 
 ## Components
 
 Client - CLI interface - Sends queries to server - Maintains session ID
 
-Flask Server Responsible for: - Running agents - Managing sessions -
-Retrieval pipeline - Response orchestration
+Flask Server Responsible for: - Running agents - Managing sessions - Retrieval pipeline - Response orchestration
 
-Vector Database Stores contract clause embeddings and metadata for
-retrieval.
+Vector Database Stores contract clause embeddings and metadata for retrieval.
 
 # Multi-Agent Design
 
@@ -87,8 +85,7 @@ Blocks queries related to: - Legal advice - Contract drafting - Non-legal questi
 
 Example blocked queries:
 
-Can you draft an NDA? What legal strategy should Acme use? Who won the
-world cup?
+`Who won the world cup?`
 
 Output:
 
@@ -100,14 +97,13 @@ Output:
 
 Purpose: Enables multi-turn conversation.
 
-It converts follow-up questions into standalone queries using
-conversation history.
+It converts follow-up questions into standalone queries using conversation history.
 
 Example:
 
 ```
-User: What is the termination clause in the NDA? User: What about notice
-period?
+User: What is the termination clause in the NDA?
+User: What about notice period?
 ```
 
 Memory Agent rewrites:
@@ -152,7 +148,7 @@ Analyzes retrieved clauses for potential legal risks such as:
 
 Outputs:
 
-`Related risks associated with the clause/section.`
+Related risks associated with the clause/section.
 
 ## 7. Answer Generation Agent
 
@@ -175,8 +171,8 @@ The answer includes:
 
 Legal documents are structured into clauses and numbered sections.
 
-Instead of naive chunking, the system performs clause-aware chunking by
-splitting documents based on section numbering patterns.
+Instead of naive chunking, the system performs clause-aware chunking by splitting 
+documents based on section numbering patterns.
 
 Example:
 
@@ -272,11 +268,11 @@ A small evaluation pipeline is implemented to assess system performance.
 
 # Example Queries
 
-What is the notice period for terminating the NDA? Which law governs the
-Vendor Services Agreement? Do confidentiality obligations survive
-termination? Is liability capped for breach of confidentiality? Are
-there any legal risks related to liability exposure? Summarize all risks
-for Acme Corp.
+- What is the notice period for terminating the NDA? 
+- Which law governs the Vendor Services Agreement?
+- Do confidentiality obligations survive termination?
+- Is liability capped for breach of confidentiality?
+- Are there any legal risks related to liability exposure? Summarize all risks for Acme Corp.
 
 # Known Limitations
 

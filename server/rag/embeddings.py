@@ -20,5 +20,3 @@ class EmbeddingModel:
 
     def name(self):
         return "bge-small-en"
-    
-    # What is the notice period for terminating the NDA?
