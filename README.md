@@ -40,17 +40,19 @@ Agent | Risk Analysis Agent | Answer Generation Agent | Final Response + Sources
 ![Architecture](new_architecture.png)
 
 
-# Setup Instructions
+# Setup Instructions(works well on linux)
 
-1.  Install dependencies
+1.  Install dependencies(preferably in separate conda env)
 
 pip install -r requirements.txt
 
-2.  Install Ollama and pull model
+2.  Install Ollama
 
 ```
 curl -fsSL https://ollama.com/install.sh | sh
 ```
+
+And then run it `ollama run ollama3`
 
 3.  Ingest documents(One time activity)
 
@@ -63,6 +65,10 @@ curl -fsSL https://ollama.com/install.sh | sh
 5.  Start client
 
 `python client/cli.py`
+
+### Warning:
+
+For the first run, it would download models and hence require good internet connection.
 
 
 ## Components
