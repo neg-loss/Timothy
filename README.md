@@ -46,6 +46,8 @@ Agent | Risk Analysis Agent | Answer Generation Agent | Final Response + Sources
 
 `pip install -r requirements.txt`
 
+Use `python=3.12`
+
 2.  Install Ollama
 
 ```
