@@ -1,0 +1,54 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyc
+
+# Environment
+.env
+.venv/
+venv/
+ENV/
+env/
+
+# VS Code
+.vscode/
+
+# JetBrains
+.idea/
+*.iml
+
+# SQLite/Chroma/vector DB files
+chroma/
+chroma.sqlite3
+chroma/**/*.bin
+
+# Logs
+logs/
+*.log
+
+# Data (optional, uncomment if needed)
+#data/
+
+# Jupyter
+.ipynb_checkpoints
+
+# macOS
+.DS_Store
+
+# Linux trash
+.Trash-*/
+
+# Temporary files
+*.tmp
+*.swp
+*~
+
+# Coverage
+.coverage
+.pytest_cache/
+
+# Node modules
+node_modules/
+
+# Ensure Git will still track this file
+!.gitignore
