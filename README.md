@@ -41,6 +41,30 @@ This system provides:
 
 User Query | Guardrail Agent | Memory Agent | Query Classification Agent | Retrieval Agent | Rerank Agent | Risk Analysis Agent | Answer Generation Agent | Final Response + Sources + Risk Indicators
 
+
+# Setup Instructions
+
+1.  Install dependencies
+
+pip install -r requirements.txt
+
+2.  Install Ollama and pull model
+
+ollama pull llama3
+
+3.  Ingest documents(One time activity)
+
+python ingestion/ingest.py
+
+4.  Start server
+
+python app.py
+
+5.  Start client
+
+python client/cli.py
+
+
 ## Components
 
 Client - CLI interface - Sends queries to server - Maintains session ID
@@ -193,7 +217,7 @@ Reasons:
 
 Stored metadata includes:
 
-document name clause id section title clause text
+document name, section, title, clause text etc.
 
 ## LLM Model Choice
 
@@ -226,12 +250,10 @@ Features:
 -   Each client session has unique ID
 -   Conversation history stored server-side
 -   History used by Memory Agent
--   Sessions expire automatically using TTL
 
 # RAG Ingestion Workflow
 
-Load contract documents ↓ Clause-based chunking ↓ Generate embeddings ↓
-Store in vector database
+Load contract documents | Clause-based chunking | Generate embeddings | Store in vector database
 
 # Evaluation Approach
 
@@ -242,52 +264,11 @@ A small evaluation pipeline is implemented to assess system performance.
 1.  Retrieval Accuracy Measured by checking if expected keywords appear
     in retrieved clauses.
 
-2.  Answer Grounding Ensures answers are based on retrieved context.
-
-3.  Risk Detection Evaluates whether risk analysis identifies
-    problematic clauses.
-
 ## Limitations of Evaluation
 
 -   Small evaluation dataset
 -   Keyword-based correctness
 -   No human expert validation
-
-# Performance Optimizations
-
-Several optimizations were implemented:
-
-Reduced LLM Calls Some agents were combined to minimize unnecessary LLM
-inference.
-
-Embedding Caching Repeated queries reuse cached embeddings.
-
-Reranking Improves retrieval precision.
-
-Local Inference Using Ollama allows the system to run completely
-locally.
-
-# Setup Instructions
-
-1.  Install dependencies
-
-pip install -r requirements.txt
-
-2.  Install Ollama and pull model
-
-ollama pull llama3
-
-3.  Ingest documents
-
-python ingestion/ingest.py
-
-4.  Start server
-
-python app.py
-
-5.  Start client
-
-python client/cli.py
 
 # Example Queries
 
@@ -307,22 +288,17 @@ for Acme Corp.
 
 # Potential Production Enhancements
 
-Hybrid Retrieval Combine vector search and keyword search.
-
 Better Legal Parsing Use advanced legal document parsers.
 
-Larger Evaluation Benchmarks Create labeled datasets for retrieval and
-risk detection.
+Larger Evaluation Benchmarks Create labeled datasets for retrieval and risk detection.
 
 Guardrail Improvements Add stronger safety filters.
 
-Scalable Architecture Move from Flask to a distributed microservice
-architecture.
+Scalable Architecture Move from Flask to a distributed microservice architecture.
 
 # Conclusion
 
-This project demonstrates a modular multi-agent RAG system for legal
-contract analysis with:
+This project demonstrates a modular multi-agent RAG system for legal contract analysis with:
 
 -   Interactive CLI interface
 -   Clause-aware retrieval
@@ -330,5 +306,4 @@ contract analysis with:
 -   Risk detection
 -   Grounded responses with citations
 
-The architecture emphasizes separation of responsibilities across
-agents, enabling maintainability and extensibility.
+The architecture emphasizes separation of responsibilities across agents, enabling maintainability and extensibility.
