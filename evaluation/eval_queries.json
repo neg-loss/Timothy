@@ -1,0 +1,17 @@
+[
+  {
+    "query": "What is the notice period for terminating the NDA?",
+    "expected_document": "nda_acme_vendor.txt",
+    "expected_keyword": "notice"
+  },
+  {
+    "query": "Which law governs the Vendor Services Agreement?",
+    "expected_document": "vendor_services_agreement.txt",
+    "expected_keyword": "governing law"
+  },
+  {
+    "query": "Is liability capped for breach of confidentiality?",
+    "expected_document": "nda_acme_vendor.txt", 
+    "expected_keyword": "liability"
+  }
+]

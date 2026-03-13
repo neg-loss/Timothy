@@ -1,0 +1,8 @@
+flask
+torch==2.10.0
+chromadb
+sentence-transformers
+ollama
+python-dotenv
+tqdm
+pydantic
