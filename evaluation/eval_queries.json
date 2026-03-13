@@ -2,16 +2,73 @@
   {
     "query": "What is the notice period for terminating the NDA?",
     "expected_document": "nda_acme_vendor.txt",
-    "expected_keyword": "notice"
+    "expected_keyword": "thirty days"
+  },
+  {
+    "query": "What is the uptime commitment in the SLA?",
+    "expected_document": "service_level_agreement.txt", 
+    "expected_keyword": "99.5%"
   },
   {
     "query": "Which law governs the Vendor Services Agreement?",
     "expected_document": "vendor_services_agreement.txt",
-    "expected_keyword": "governing law"
+    "expected_keyword": "England and Wales"
+  },
+  {
+    "query": "Do confidentiality obligations survive termination of the NDA?",
+    "expected_document": "nda_acme_vendor.txt", 
+    "expected_keyword": "yes"
   },
   {
     "query": "Is liability capped for breach of confidentiality?",
     "expected_document": "nda_acme_vendor.txt", 
+    "expected_keyword": "yes"
+  },
+  
+  {
+    "query": "What remedies are available if the SLA uptime is not met?",
+    "expected_document": "nda_acme_vendor.txt",
+    "expected_keyword": "service credits"
+  },
+  {
+    "query": "Is Vendor XYZ’s liability capped for data breaches?",
+    "expected_document": "service_level_agreement.txt", 
     "expected_keyword": "liability"
-  }
+  },
+  {
+    "query": "Which agreement governs data breach notification timelines?",
+    "expected_document": "data_processing_agreement.txt",
+    "expected_keyword": "DATA PROCESSING AGREEMENT"
+  },
+  {
+    "query": "Are there any legal risks related to liability exposure?",
+    "expected_document": "nda_acme_vendor.txt", 
+    "expected_keyword": "liability"
+  },
+  {
+    "query": "Identify any clauses that could pose financial risk to Acme Corp.",
+    "expected_document": "nda_acme_vendor.txt", 
+    "expected_keyword": "liability"
+  },
+  {
+    "query": "Is there any unlimited liability in these agreements?",
+    "expected_document": "nda_acme_vendor.txt", 
+    "expected_keyword": "yes"
+  },
+  
+  {
+    "query": "Can Vendor XYZ share Acme’s confidential data with subcontractors?",
+    "expected_document": "nda_acme_vendor.txt",
+    "expected_keyword": "no"
+  },
+  {
+    "query": "Can you draft a better NDA for me?",
+    "expected_document": "NA", 
+    "expected_keyword": "Please ask a different question"
+  },
+  {
+    "query": "What legal strategy should Acme take against Vendor XYZ?",
+    "expected_document": "NA", 
+    "expected_keyword": "Please ask a different question"
+  },
 ]
