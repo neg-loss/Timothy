@@ -44,7 +44,7 @@ Agent | Risk Analysis Agent | Answer Generation Agent | Final Response + Sources
 
 1.  Install dependencies(preferably in separate conda env)
 
-pip install -r requirements.txt
+`pip install -r requirements.txt`
 
 2.  Install Ollama
 
@@ -52,7 +52,7 @@ pip install -r requirements.txt
 curl -fsSL https://ollama.com/install.sh | sh
 ```
 
-And then run it `ollama run ollama3`
+And then run it `ollama run ollama3` (Separate terminal)
 
 3.  Ingest documents(One time activity)
 
@@ -60,15 +60,15 @@ And then run it `ollama run ollama3`
 
 4.  Start server
 
-`python app.py`
+`python app.py` (Separate terminal)
 
 5.  Start client
 
-`python client/cli.py`
+`python client/cli.py` (Separate terminal)
 
 ### Warning:
 
-For the first run, it would download models and hence require good internet connection.
+For the first run, it would download models and hence require a good internet connection.
 
 
 ## Components
