@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 # Legal RAG
 
@@ -60,3 +61,7 @@ python evaluator.py
 ```
 
 This will run the evaluation queries from `evaluation/eval_queries.json` and print the results. This might take some time depending on the number of queries.
+=======
+# Timothy
+Legal advisor
+>>>>>>> f098c771fcb3c6ecefdd431bd40ce24a8cfc2b24
